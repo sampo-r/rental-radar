@@ -1,0 +1,24 @@
+# Target search configuration for rental apartments
+search:
+  location_name: "Taka-Töölö, Helsinki"
+  city: "helsinki"
+  district: "taka-toolo"
+  
+  # Apartment specs
+  price_max: 1050
+  price_min: 700
+  size_min: 27
+  size_max: 38
+  room_counts: [1, 2] # 1h or 2h
+
+# Scraping settings
+scraper:
+  download_images: true
+  max_images_per_listing: 12
+  request_delay_seconds: 2.0 # polite rate limiting
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+
+# Server & Dashboard
+server:
+  host: "0.0.0.0"
+  port: 8080

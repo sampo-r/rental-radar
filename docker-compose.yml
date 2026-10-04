@@ -1,0 +1,18 @@
+services:
+  rental-radar:
+    build: .
+    container_name: rental-radar
+    restart: unless-stopped
+    ports:
+      - "8080:8080" # Web dashboard & photo browser
+    volumes:
+      - ./data:/app/data         # SQLite DB & downloaded photos persist here
+      - ./config.yaml:/app/config.yaml # Customizable search parameters
+    environment:
+      - TZ=Europe/Helsinki
+      - RUN_ON_STARTUP=true     # Scrape immediately on start
+      - CRON_HOUR=7             # Run daily at 07:00 Helsinki time
+      - CRON_MINUTE=0
+      - TELEGRAM_BOT_TOKEN=     # Optional: send alerts to Telegram
+      - TELEGRAM_CHAT_ID=
+      - DISCORD_WEBHOOK_URL=    # Optional: send alerts to Discord
